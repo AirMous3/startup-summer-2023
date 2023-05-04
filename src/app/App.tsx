@@ -1,6 +1,6 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
-import { Main } from '@/pages'
+import { Favorite, Search } from '@/pages'
 import { Container, Header } from '@/widgets'
 
 export const App = () => {
@@ -10,9 +10,9 @@ export const App = () => {
         <Header />
 
         <Routes>
-          <Route path={'/'} element={<Main />} />
-          <Route path={'/search'} element={<Main />} />
-          <Route path={'/favorite'} element={<Main />} />
+          <Route path={'/search'} element={<Search />} />
+          <Route path={'/favorite'} element={<Favorite />} />
+          <Route path="*" element={<Navigate to="/search" replace />} />
         </Routes>
       </Container>
     </>

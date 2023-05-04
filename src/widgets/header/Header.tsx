@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 import { navConfig } from '@/widgets/header/config'
 
@@ -6,15 +6,9 @@ import * as S from './components'
 
 export const Header = () => {
   const { pathname } = useLocation()
-  const navigate = useNavigate()
-
-  const handleRedirectToMainPage = () => {
-    return navigate('/')
-  }
-
   return (
     <S.Container>
-      <S.TitleWrapper onClick={handleRedirectToMainPage}>
+      <S.TitleWrapper>
         <S.Logo />
 
         <S.Title>Jobored</S.Title>
