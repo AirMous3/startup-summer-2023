@@ -1,11 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
+import '@/shared/fonts/poppins/poppins.css'
 
 export const GlobalStyle = createGlobalStyle`
 
   body {
+    font-family: 'Poppins',sans-serif;
     touch-action: none;
     margin: 0;
-    font-family: serif;
     overflow-x: hidden;
     box-sizing: border-box;
   }
