@@ -1,10 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
+
+import '@/shared/fonts/inter/inter.css'
 import '@/shared/fonts/poppins/poppins.css'
 
 export const GlobalStyle = createGlobalStyle`
 
   body {
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Inter', sans-serif;
     touch-action: none;
     margin: 0;
     overflow-x: hidden;
