@@ -3,16 +3,15 @@ import styled from 'styled-components/macro'
 import titleImage from '@/shared/assets/icons/title-icon.svg'
 
 export const Container = styled.header`
-  padding-top: 24px;
-  padding-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 84px;
+  max-height: 84px;
 `
 export const TitleWrapper = styled.div`
   margin-right: auto;
   display: flex;
-  cursor: pointer;
 `
 export const Title = styled.h1`
   font-family: 'Poppins', sans-serif;

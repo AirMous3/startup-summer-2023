@@ -37,4 +37,11 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  input {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+  }
 `
