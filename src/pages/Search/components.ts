@@ -11,6 +11,7 @@ export const InputWrapper = styled.div`
   align-items: center;
   border: 1px solid #eaebed;
   border-radius: 8px;
+  min-height: 48px;
   max-height: 48px;
   width: 100%;
   background: ${({ theme }) => theme.colors.background.white};
@@ -39,4 +40,8 @@ export const SearchButton = styled(Button)`
   min-height: 32px;
   max-height: 32px;
   padding: 4px 20px;
+`
+
+export const Wrapper = styled.div`
+  width: 100%;
 `

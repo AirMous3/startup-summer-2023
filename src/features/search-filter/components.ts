@@ -12,6 +12,7 @@ export const Container = styled.div`
   padding: 20px;
   box-sizing: border-box;
   margin-right: 28px;
+  max-height: 360px;
 `
 export const TitleWrapper = styled.div`
   display: flex;
@@ -64,4 +65,5 @@ export const AcceptButton = styled(Button)`
   min-height: 40px;
   max-height: 40px;
   width: 100%;
+  margin-bottom: 20px;
 `

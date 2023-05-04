@@ -2,7 +2,8 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
 import { Favorite, Search } from '@/pages'
-import { Container, Header } from '@/widgets'
+import { Container } from '@/shared'
+import { Header } from '@/widgets'
 
 const PagesWrapper = styled.div`
   background: ${({ theme }) => theme.colors.background.main};
