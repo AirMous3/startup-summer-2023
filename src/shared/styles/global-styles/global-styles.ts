@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 import '@/shared/fonts/inter/inter.css'
 import '@/shared/fonts/poppins/poppins.css'
+import '@/shared/fonts/openSans/opensans.css'
 
 export const GlobalStyle = createGlobalStyle`
 
