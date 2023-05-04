@@ -1,9 +1,13 @@
 import { Main } from '@/pages'
-import { Header } from '@/widgets'
+import { Container, Header } from '@/widgets'
 
 export const App = () => {
-  return <>
-    <Header />
-    <Main />
-  </>
+  return (
+    <>
+      <Container>
+        <Header />
+        <Main />
+      </Container>
+    </>
+  )
 }

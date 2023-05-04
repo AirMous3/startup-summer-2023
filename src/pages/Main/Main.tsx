@@ -1,3 +1,3 @@
 export const Main = () => {
-  return <div>123432</div>
+  return <section>123432</section>
 }
