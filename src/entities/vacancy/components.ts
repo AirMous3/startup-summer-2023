@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 
+import activeStar from '@/shared/assets/icons/active-start.svg'
 import locationIcon from '@/shared/assets/icons/location-icon.svg'
 import starIcon from '@/shared/assets/icons/star-icon.svg'
 
@@ -22,8 +23,8 @@ export const Title = styled.div`
   color: ${({ theme }) => theme.colors.text.blue};
   cursor: pointer;
 `
-export const Star = styled.div`
-  background-image: url(${starIcon});
+export const Star = styled.div<{ isActive: boolean }>`
+  background-image: url(${({ isActive }) => (isActive ? activeStar : starIcon)});
   background-repeat: no-repeat;
   width: 22px;
   height: 22px;

@@ -1,11 +1,15 @@
+import { useState } from 'react'
+
 import * as S from './components'
 
 export const Vacancy = () => {
+  const [active, setActive] = useState(false)
+
   return (
     <S.Container>
       <S.TitleWrapper>
         <S.Title>Менеджер-Дизайнер</S.Title>
-        <S.Star />
+        <S.Star onClick={() => setActive(!active)} isActive={active} />
       </S.TitleWrapper>
 
       <S.InfoWrapper>
