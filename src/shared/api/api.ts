@@ -19,8 +19,11 @@ export const api = {
   login() {
     return instance
       .get<LoginInterface>(
-        `/2.0/oauth2/password?login=${process.env.REACT_APP_CLIENT_LOGIN}&password=${process.env.REACT_APP_CLIENT_PASSWORD}&client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&hr=0`
+        `/2.0/oauth2/password/?login=${process.env.REACT_APP_CLIENT_LOGIN}&password=${process.env.REACT_APP_CLIENT_PASSWORD}&client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`
       )
       .then((data) => data.data)
+  },
+  getCatalogues() {
+    return instance.get(`/2.0/catalogues/`).then((data) => data.data)
   },
 }

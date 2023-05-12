@@ -50,7 +50,7 @@ export const Subtitle = styled.div`
   font-weight: 700;
   font-size: 16px;
 `
-export const BranchInput = styled.input`
+export const BranchSelect = styled.select`
   margin-top: 8px;
   width: 100%;
   min-height: 42px;
@@ -59,8 +59,20 @@ export const BranchInput = styled.input`
   border: 1px solid #d5d6dc;
   border-radius: 8px;
   padding: 11px 18px 11px 12px;
+  cursor: pointer;
+  outline: none;
 `
-export const PriceInput = styled(BranchInput)``
+export const PriceInput = styled.input`
+  margin-top: 8px;
+  width: 100%;
+  min-height: 42px;
+  max-height: 42px;
+  box-sizing: border-box;
+  border: 1px solid #d5d6dc;
+  border-radius: 8px;
+  padding: 11px 18px 11px 12px;
+  cursor: pointer;
+`
 export const AcceptButton = styled(Button)`
   min-height: 40px;
   max-height: 40px;
