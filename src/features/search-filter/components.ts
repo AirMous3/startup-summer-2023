@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 
 import { Button } from '@/shared'
 import crossIcon from '@/shared/assets/icons/cross-icon.svg'
+import vacancyArrowDown from '@/shared/assets/icons/vacancy-arrow-down.svg'
 
 export const Container = styled.div`
   border: 1px solid #eaebed;
@@ -61,6 +62,15 @@ export const BranchSelect = styled.select`
   padding: 11px 18px 11px 12px;
   cursor: pointer;
   outline: none;
+  color: ${({ theme }) => theme.colors.text.grey};
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: white url(${vacancyArrowDown}) no-repeat right 15px top 50%;
+
+  option {
+    color: black;
+  }
 `
 export const PriceInput = styled.input`
   margin-top: 8px;
@@ -72,6 +82,7 @@ export const PriceInput = styled.input`
   border-radius: 8px;
   padding: 11px 18px 11px 12px;
   cursor: pointer;
+  color: ${({ theme }) => theme.colors.text.grey};
 `
 export const AcceptButton = styled(Button)`
   min-height: 40px;

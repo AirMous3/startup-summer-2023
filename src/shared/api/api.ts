@@ -1,9 +1,13 @@
 import axios from 'axios'
 
+const access_token = localStorage.getItem('access_token')
+
 const instance = axios.create({
   baseURL: process.env.REACT_APP_SUMMER_PROXY,
   headers: {
     'x-secret-key': process.env.REACT_APP_X_SECRET_KEY,
+    'X-Api-App-Id': process.env.REACT_APP_CLIENT_SECRET,
+    Authorization: `Bearer ${access_token}`,
   },
 })
 
@@ -25,5 +29,12 @@ export const api = {
   },
   getCatalogues() {
     return instance.get(`/2.0/catalogues/`).then((data) => data.data)
+  },
+  getVacancies(keyword: string, payment_from: number = 0, payment_to: number = 0) {
+    return instance
+      .get(
+        `/2.0/vacancies/?published=1&keyword=${keyword}&payment_from=${payment_from}&payment_to=${payment_to}`
+      )
+      .then((data) => data.data.objects)
   },
 }

@@ -1,14 +1,17 @@
 import { ChangeEvent } from 'react'
 
+import { useAppDispatch } from '@/app/store'
+import { changeFilters } from '@/features'
+
 import * as S from './components'
 
 interface SearchFilterInterface {
   catalogue: { title_rus: string }[]
+  category: string
+  price: { from: string; to: string }
   onChangeCategory: (event: ChangeEvent<HTMLSelectElement>) => void
   onChangePriceFrom: (event: ChangeEvent<HTMLInputElement>) => void
   onChangePriceTo: (event: ChangeEvent<HTMLInputElement>) => void
-  category: string
-  price: { from: number; to: number }
 }
 
 export const SearchFilter = ({
@@ -19,6 +22,10 @@ export const SearchFilter = ({
   catalogue,
   price,
 }: SearchFilterInterface) => {
+  const dispatch = useAppDispatch()
+  const handleChangeFilters = () => {
+    dispatch(changeFilters({ price: { from: +price.from, to: +price.to }, category }))
+  }
   return (
     <S.Container>
       <S.TitleWrapper>
@@ -64,7 +71,7 @@ export const SearchFilter = ({
         />
       </S.SubtitleWrapper>
 
-      <S.AcceptButton>Применить</S.AcceptButton>
+      <S.AcceptButton onClick={handleChangeFilters}>Применить</S.AcceptButton>
     </S.Container>
   )
 }

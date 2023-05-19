@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-import { RootStateType, useAppDispatch } from '@/app/store'
+import { useAppDispatch, useAppSelector } from '@/app/store'
 import { login } from '@/features'
 import { Favorite, Search } from '@/pages'
 import { Container } from '@/shared'
@@ -17,13 +16,13 @@ const PagesWrapper = styled.div`
 
 export const App = () => {
   const dispatch = useAppDispatch()
-  const access_token = useSelector((state: RootStateType) => state.login.access_token)
+  const access_token = useAppSelector((state) => state.login.access_token)
 
   useEffect(() => {
     if (!access_token) {
       dispatch(login())
     }
-  }, [dispatch])
+  }, [dispatch, access_token])
 
   return (
     <>

@@ -13,7 +13,7 @@ const initialState: InitialStateInterface = {
 export const login = createAsyncThunk('login/login', async () => {
   try {
     const { access_token } = await api.login()
-
+    localStorage.setItem('access_token', access_token)
     if (access_token) return access_token
   } catch (e) {
     console.log(e)

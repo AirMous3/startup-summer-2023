@@ -1,25 +1,42 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 
-import { Vacancy } from '@/entities'
+import { useAppDispatch, useAppSelector } from '@/app/store'
+import { VacanciesList, getVacancies } from '@/entities'
 import { SearchFilter } from '@/features'
-import { api } from '@/shared/api'
+import { api } from '@/shared'
 
 import * as S from './components'
 
-
 export const Search = () => {
+  const dispatch = useAppDispatch()
   const [catalogue, setCatalogue] = useState([])
   const [category, setCategory] = useState('')
-  const [price, setPrice] = useState({ from: 0, to: 0 })
+  const [price, setPrice] = useState({ from: '', to: '' })
+  const [vacancyTitle, setVacancyTitle] = useState('')
+
+  const filteredPrice = useAppSelector((state) => state.filter.price)
 
   const handleChangeCategory = (event: ChangeEvent<HTMLSelectElement>) => {
     setCategory(event.target.value)
   }
   const handleChangePriceFrom = (event: ChangeEvent<HTMLInputElement>) => {
-    setPrice({ ...price, from: +event.currentTarget.value })
+    setPrice({ ...price, from: event.currentTarget.value })
   }
   const handleChangePriceTo = (event: ChangeEvent<HTMLInputElement>) => {
-    setPrice({ ...price, to: +event.currentTarget.value })
+    setPrice({ ...price, to: event.currentTarget.value })
+  }
+  const handleChangeVacancyTitle = (event: ChangeEvent<HTMLInputElement>) => {
+    setVacancyTitle(event.currentTarget.value)
+  }
+
+  const handleSearchVacancies = () => {
+    dispatch(
+      getVacancies({
+        keyword: vacancyTitle,
+        paymentTo: filteredPrice.to,
+        paymentFrom: filteredPrice.from,
+      })
+    )
   }
 
   useEffect(() => {
@@ -43,14 +60,16 @@ export const Search = () => {
 
       <S.Wrapper>
         <S.InputWrapper>
-          <S.SearchInput placeholder="Введите название вакансии" />
-          <S.SearchButton>Поиск</S.SearchButton>
+          <S.SearchInput
+            placeholder="Введите название вакансии"
+            value={vacancyTitle}
+            onChange={handleChangeVacancyTitle}
+          />
+
+          <S.SearchButton onClick={handleSearchVacancies}>Поиск</S.SearchButton>
         </S.InputWrapper>
 
-        <Vacancy />
-        <Vacancy />
-        <Vacancy />
-        <Vacancy />
+        <VacanciesList />
       </S.Wrapper>
     </S.Container>
   )

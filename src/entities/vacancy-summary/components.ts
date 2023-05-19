@@ -22,6 +22,7 @@ export const Title = styled.div`
   font-size: 20px;
   color: ${({ theme }) => theme.colors.text.blue};
   cursor: pointer;
+  max-width: 630px;
 `
 export const Star = styled.div<{ isActive: boolean }>`
   background-image: url(${({ isActive }) => (isActive ? activeStar : starIcon)});
